@@ -22,8 +22,7 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
-**/Projects/Project0/Endpoints.md
-**/.gitignore
-**/Projects/Project0/dbSetup.md
-**/Projects/.vscode
-**.DS_Store
+Projects/Project0/Endpoints.md
+.gitignore
+Projects/Project0/dbSetup.md
+z
