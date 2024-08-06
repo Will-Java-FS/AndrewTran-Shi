@@ -26,3 +26,4 @@ replay_pid*
 **/.gitignore
 **/Projects/Project0/dbSetup.md
 **/Projects/.vscode
+**.DS_Store
