@@ -308,4 +308,3 @@ java -jar target/Project0-0.0.1-SNAPSHOT.jar
 
 ---
 
-This README provides a comprehensive overview of setting up and testing the application. Follow the instructions to ensure a smooth setup and interaction with the API endpoints.

@@ -26,3 +26,5 @@ Projects/Project0/Endpoints.md
 .gitignore
 Projects/Project0/dbSetup.md
 z
+.DS_Store
+.vscode/settings.json
