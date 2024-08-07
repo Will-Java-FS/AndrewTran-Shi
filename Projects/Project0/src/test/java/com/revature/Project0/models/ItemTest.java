@@ -5,6 +5,16 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@ToString
+@Data
+@Setter
+@Getter
+
 public class ItemTest {
 
     @Test
@@ -151,4 +161,5 @@ public class ItemTest {
         String expectedString = "Item(id=1, name=Test Item, description=Description, status=true, user=User(id=1, email=null, password=null, username=null))";
         assertEquals(expectedString, item.toString());
     }
+
 }
