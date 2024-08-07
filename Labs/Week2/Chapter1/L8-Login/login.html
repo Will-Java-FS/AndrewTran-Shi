@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+        <style>
+        * {
+            font-family: Monaco, monospace;
+        }
+    </style>
+    </head>
+    <body>
+        <h1>Login</h1>
+        <p id="loginMessage">hello, please log in!</p>
+        <input id="usernameInput" placeholder="Username">
+        <br>
+        <input id="passwordInput" type="password" placeholder="Password">
+        <br>
+        <button id="loginButton">login</button>
+        <br>
+        <script>
+        /**
+         * Function to handle login logic.
+         */
+        function handleLogin() {
+            // Retrieve input values
+            var username = document.getElementById("usernameInput").value;
+            var password = document.getElementById("passwordInput").value;
+
+            // Hardcoded credentials
+            var correctUsername = "user";
+            var correctPassword = "password";
+
+            // Reference to the loginMessage <p> element
+            var loginMessage = document.getElementById("loginMessage");
+
+            // Check if the provided username and password match the hardcoded values
+            if (username === correctUsername && password === correctPassword) {
+                loginMessage.innerText = "welcome, user!";
+            } else {
+                loginMessage.innerText = "login unsuccessful, please try again";
+            }
+        }
+
+        // Add event listener to the login button
+        document.getElementById("loginButton").onclick = handleLogin;
+    </script>
+    </body>
+</html>

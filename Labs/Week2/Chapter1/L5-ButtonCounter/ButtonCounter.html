@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Button Counter</title>
+        <style>
+        * {
+            font-family: Monaco, monospace;
+        }
+    </style>
+    </head>
+    <body>
+        <h1>Button counter</h1>
+        <p id="count">0</p>
+        <button id="button">click me</button>
+        <script>
+  /**
+   * Now that you understand how to retrieve elements from the DOM and how to change properties such as innerText
+   * belonging to the DOM, let's do something more involved.
+  /**
+   * Every time the button is clicked, the number in the "count" element should increase by 1.
+   * We keep track of the current count using a variable and update the DOM accordingly.
+   */
+
+  // Initial count value
+  var currentCount = 0;
+
+  // Retrieve the DOM elements
+  var countElement = document.getElementById("count");
+  var button = document.getElementById("button");
+
+  // Function to handle button click
+  function updateCount() {
+      currentCount++;  // Increment the count
+      countElement.innerText = currentCount;  // Update the count in the DOM
+  }
+
+  // Add event listener to the button
+  button.onclick = updateCount;
+</script>
+    </body>
+</html>

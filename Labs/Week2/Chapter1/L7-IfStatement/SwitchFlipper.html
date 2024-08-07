@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>SwitchFlipper</title>
+        <style>
+        * {
+            font-family: Monaco, monospace;
+        }
+    </style>
+    </head>
+    <body>
+        <h1>Switch flipper</h1>
+        <button id="switch">Flip the switch!</button>
+        <p id="lightText">is the light on?</p>
+        <button id="checkButton">check if the light is on</button>
+        <br>
+        <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else">
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else</a>
+        <script>
+          /**
+           * JavaScript code to flip a switch and check its state.
+           */
+
+          var switchButton = document.getElementById("switch");
+          var lightText = document.getElementById("lightText");
+          var checkButton = document.getElementById("checkButton");
+
+          // Set the initial value of lightOn
+          var lightOn = false;
+
+          // Function to flip the switch
+          function switchLight() {
+              lightOn = !lightOn; // Toggle lightOn between true and false
+          }
+
+          // Function to check the light status
+          function checkLight() {
+              if (lightOn) {
+                  lightText.innerText = "the light is on";
+              } else {
+                  lightText.innerText = "the light is off";
+              }
+          }
+
+          // Add event listeners to buttons
+          switchButton.onclick = switchLight;
+          checkButton.onclick = checkLight;
+      </script>
+    </body>
+</html>
