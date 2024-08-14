@@ -8,7 +8,11 @@ export default function Board() {
 	const winner = calculateWinner(squares);
 	let status;
 	if (winner) {
-		status = "Winner: " + winner;
+		status = (
+			<span>
+				Winner: <span style={{ color: "green" }}>{winner}</span>
+			</span>
+		);
 	} else {
 		status = "Next player: " + (xIsNext ? "X" : "O");
 	}
@@ -38,13 +42,17 @@ export default function Board() {
 		onClick: () => void;
 	}) {
 		return (
-			<button className="square" onClick={onClick}>
+			<button
+				className="square"
+				onClick={onClick}
+				style={{ color: value === "X" ? "blue" : "red" }} // Conditional styling
+			>
 				{value}
 			</button>
 		);
 	}
 
-	function calculateWinner(squares) {
+	function calculateWinner(squares: Array<string | null>) {
 		const lines = [
 			[0, 1, 2],
 			[3, 4, 5],
@@ -71,7 +79,9 @@ export default function Board() {
 	return (
 		<>
 			<div className="board-container">
-				<div className="status">{status}</div>
+				<div className="status">
+					<h3>{status}</h3>
+				</div>
 				<div className="board-row">
 					<Square value={squares[0]} onClick={() => handleClick(0)} />
 					<Square value={squares[1]} onClick={() => handleClick(1)} />
