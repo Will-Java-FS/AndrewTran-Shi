@@ -5,11 +5,19 @@ export default function Board() {
 	// the useState() that wraps it bascailly sets all teh squares to the state "square"
 	const [squares, setSquares] = useState(Array(9).fill(null));
 	const [xIsNext, setXIsNext] = useState(true);
-
+	const winner = calculateWinner(squares);
+	let status;
+	if (winner) {
+		status = "Winner: " + winner;
+	} else {
+		status = "Next player: " + (xIsNext ? "X" : "O");
+	}
 	function handleClick(i: number) {
 		// Create a copy of the squares array to avoid direct mutation
 		const newSquares = squares.slice(); //creates a copy of the squares array (nextSquares) with the JavaScript slice() Array method.
-		if (newSquares[i]) return; // If the square already has a value, do nothing
+		if (squares[i] || calculateWinner(squares)) {
+			return; // this checks if the square is already clicked, to prevent chaning square after pplayer makes move
+		}
 		newSquares[i] = xIsNext ? "X" : "O"; // the handleClick updates the newSquare array to add X to the first ([0] index or wherever) square
 		// xIsNext is true, it assigns the value "X" to the i-th index of the newSquares array. Otherwise, it assigns the value "O"
 		// this tracks the current move (x or O)
@@ -36,9 +44,34 @@ export default function Board() {
 		);
 	}
 
+	function calculateWinner(squares) {
+		const lines = [
+			[0, 1, 2],
+			[3, 4, 5],
+			[6, 7, 8],
+			[0, 3, 6],
+			[1, 4, 7],
+			[2, 5, 8],
+			[0, 4, 8],
+			[2, 4, 6]
+		];
+		for (let i = 0; i < lines.length; i++) {
+			const [a, b, c] = lines[i];
+			if (
+				squares[a] &&
+				squares[a] === squares[b] &&
+				squares[a] === squares[c]
+			) {
+				return squares[a];
+			}
+		}
+		return null;
+	}
+
 	return (
 		<>
 			<div className="board-container">
+				<div className="status">{status}</div>
 				<div className="board-row">
 					<Square value={squares[0]} onClick={() => handleClick(0)} />
 					<Square value={squares[1]} onClick={() => handleClick(1)} />
