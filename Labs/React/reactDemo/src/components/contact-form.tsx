@@ -14,6 +14,8 @@ export default function ContactForm() {
 			<h3>Request a follow-up email</h3>
 			<input name="emailInput" type="text" alt="email input" ref={emailInput} />
 			<button onClick={sendEmail}>Email Me</button>
+
+
 		</>
 	);
 }

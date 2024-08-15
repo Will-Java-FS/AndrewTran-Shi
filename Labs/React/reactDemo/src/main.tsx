@@ -1,22 +1,28 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import Intro from "./components/Intro.tsx";
-import { ActorData } from "./components/ActorData.tsx";
-import { Actor } from "./components/Actor.tsx";
-import MovieList from "./components/MovieList.tsx";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "./pages/layout.tsx";
+import { Home } from "./pages/home.tsx";
 import ContactForm from "./components/contact-form.tsx";
-import Counter from "./components/counter.tsx";
+import { Blog } from "./pages/blogs.tsx";
+import ActorList from "./components/actor-list.tsx";
 
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
-		<Intro />
-		<ContactForm />
-		<Counter />
-		<ActorData name="Ryan Reynolds" age={47} worth={350000000} />
-		<ActorData name="Robert Downey Jr" age={59} worth={300000000} />
-		<ActorData name="Chris Evans" age={43} worth={110000000} />
-		<ActorData {...Actor} />
-		<MovieList />
+		<BrowserRouter>
+			{/* this updates the url */}
+			<Routes>
+				{/* Layout route with nested routes inside */}
+				<Route path="/" element={<Layout />}>
+					{/* Home component as the index route */}
+					<Route index element={<Home />} />
+					{/* ContactForm component on a different path, e.g., "/contact" */}
+					<Route path="contact" element={<ContactForm />} />
+					<Route path="Blog" element={<Blog />} />
+					<Route path="actors" element={<ActorList />} />
+				</Route>
+			</Routes>
+		</BrowserRouter>
 	</StrictMode>
 );
